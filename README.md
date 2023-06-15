@@ -13,7 +13,7 @@ in Markdown.
 ## Usage
 
 ```
-pip3 install flask beautifulsoup4
+pip3 install flask beautifulsoup4 lxml
 python3 scred.py
 ```
 
