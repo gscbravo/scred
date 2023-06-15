@@ -13,7 +13,8 @@ for entry in soup.select('div.link:not(.promoted) div.entry'):
     entry_title = entry.select_one('a.title').text
     entry_link = entry.select_one('a.title')['href'] if not entry.select_one('a.title')['href'].startswith('/') else f"https://old.reddit.com{entry.select_one('a.title')['href']}"
     entry_comments = entry.select_one('a.comments')['href']
-    print(f"[{entry_author}: {entry_title}]({entry_link})")
+
+    print(f"[{entry_author}: {entry_title}]({entry_link})\n")
     if entry_link != entry_comments:
-        print(f"[Comments]({entry_comments})")
-    print("***")
+        print(f"[Comments]({entry_comments})\n")
+    print("***\n")
