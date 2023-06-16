@@ -31,3 +31,5 @@ python3 scred.py
 	to scrape, need to do more research on this
 - [ ] Display comments
 - [ ] Might turn into a module
+- [ ] Maybe be honest and use some custom User-Agent instead of Chrome's
+	- Just maybe
