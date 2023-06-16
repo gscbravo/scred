@@ -5,14 +5,16 @@ from bs4 import BeautifulSoup
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
 }
-# cookies to allow viewing NSFW subreddit
+# cookies to allow viewing gated and NSFW subreddit
 cookies = {
-    'over18': '1'
+    '_options': '%7B%22pref_gated_sr_optin%22%3A%20true%7D',
+    'over18': '1',
 }
 
 url = f"https://old.reddit.com/r/{input('# r/').strip()}/"
 print("")
-soup = BeautifulSoup(requests.get(url, headers=headers, cookies=cookies).content, 'lxml')
+response = requests.get(url, headers=headers, cookies=cookies)
+soup = BeautifulSoup(response.content, 'lxml')
 
 for entry in soup.select('div.link:not(.promoted) div.entry'):
     # get entry author, setting to [deleted] if not present

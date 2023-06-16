@@ -22,9 +22,8 @@ python3 scred.py
 
 ## TODO
 
-- [ ] Display gated subreddits
 - [ ] Show more than just the first page
-- [ ] Allow providing cookies to show private subreddits
+- [ ] Allow providing cookies to display private subreddits
 	- This might be a violation of the
 	[CFAA](https://en.wikipedia.org/wiki/Computer_Fraud_and_Abuse_Act), as I
 	believe there might be a thing against creating accounts specifically
@@ -33,3 +32,4 @@ python3 scred.py
 - [ ] Might turn into a module
 - [ ] Maybe be honest and use some custom User-Agent instead of Chrome's
 	- Just maybe
+	- `Mozilla/5.0 (compatible; scred/1.0; +https://github.com/gscbravo/scred)`
