@@ -5,9 +5,12 @@ from bs4 import BeautifulSoup
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
 }
+cookies = {
+    'over18': '1'
+}
 url = f"https://old.reddit.com/r/{input('# r/').strip()}/"
 print("")
-soup = BeautifulSoup(requests.get(url, headers=headers).content, 'lxml')
+soup = BeautifulSoup(requests.get(url, headers=headers, cookies=cookies).content, 'lxml')
 
 for entry in soup.select('div.link:not(.promoted) div.entry'):
     # get entry author, setting to [deleted] if not present

@@ -29,7 +29,8 @@ python3 scred.py
 
 ## TODO
 
-- [ ] Show NSFW subreddits
+- [ ] Display gated subreddits
+- [ ] Show more than just the first page
 - [ ] Allow providing cookies to show private subreddits
 	- This might be a violation of the
 	[CFAA](https://en.wikipedia.org/wiki/Computer_Fraud_and_Abuse_Act), as I
