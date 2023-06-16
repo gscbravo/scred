@@ -1,13 +1,15 @@
 import requests
 from bs4 import BeautifulSoup
 
-# User-Agent set to Chrome 114 on Windows 10 to avoid rate limit
+# User-Agent set to Chrome 114 on Windows 10
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
 }
+# cookies to allow viewing NSFW subreddit
 cookies = {
     'over18': '1'
 }
+
 url = f"https://old.reddit.com/r/{input('# r/').strip()}/"
 print("")
 soup = BeautifulSoup(requests.get(url, headers=headers, cookies=cookies).content, 'lxml')
