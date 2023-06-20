@@ -3,11 +3,7 @@
 ## About
 
 Simple web scraper for [Reddit](https://old.reddit.com), inspired by recent
-events. You input the name of a subreddit and then it will display the
-posts onto the terminal. Output is displayed in Markdown.
-
-I'm considering turning this into a module instead of a terminal output
-program.
+events. You input the name of a subreddit and then it will return posts
 
 Use responsibly, etc.
 
@@ -15,21 +11,54 @@ Use responsibly, etc.
 
 ## Usage
 
+Install requirements:
+
 ```
-pip3 install flask beautifulsoup4 lxml
-python3 scred.py
+pip3 install requests beautifulsoup4 lxml
 ```
+
+Import the module:
+
+```python
+import scred
+
+for entry in scred.get_subreddit('todayilearned'):
+    print(f"author: {entry['author']}")
+    print(f"comments: {entry['comments']}")
+    print(f"link: {entry['link']}")
+    print(f"timestamp: {entry['timestamp']}")
+    print(f"title: {entry['title']}")
+    print(f"votes: {entry['votes']}")
+    print('---')
+```
+
+## get_subreddit(subreddit, session = None)
+
+Returns a list of first page posts on subreddit.
+
+### Arguments
+
+| argument       | purpose                                              |
+| -------------- | ---------------------------------------------------- |
+| subreddit      | subreddit name, without 'r/'                         |
+| session = None | 'reddit_session' cookie, used for private subreddits |
+
+### Returns
+
+| key       | value                                                        |
+| --------- | ------------------------------------------------------------ |
+| author    | poster username, without 'u/'                                |
+| comments  | link to the post comments                                    |
+| link      | link given by the post, if none is given, same as 'comments' |
+| timestamp | ISO 8601 timestamp in UTC. Ex: YYYY-MM-DDThh:mm:ss+00:00     |
+| title     | title of the post                                            |
+| votes     | number of votes the post has                                 |
 
 ## TODO
 
 - [ ] Show more than just the first page
-- [ ] Allow providing cookies to display private subreddits
-	- This might be a violation of the
-	[CFAA](https://en.wikipedia.org/wiki/Computer_Fraud_and_Abuse_Act), as I
-	believe there might be a thing against creating accounts specifically
-	to scrape, need to do more research on this
-- [ ] Display comments
-- [ ] Might turn into a module
+- [ ] Get comments given a post
+- [ ] Get posts given a username
 - [ ] Maybe be honest and use some custom User-Agent instead of Chrome's
 	- Just maybe
 	- `Mozilla/5.0 (compatible; scred/1.0; +https://github.com/gscbravo/scred)`
