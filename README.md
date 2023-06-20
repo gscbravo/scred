@@ -59,6 +59,3 @@ Returns a list of first page posts on subreddit.
 - [ ] Show more than just the first page
 - [ ] Get comments given a post
 - [ ] Get posts given a username
-- [ ] Maybe be honest and use some custom User-Agent instead of Chrome's
-	- Just maybe
-	- `Mozilla/5.0 (compatible; scred/1.0; +https://github.com/gscbravo/scred)`
