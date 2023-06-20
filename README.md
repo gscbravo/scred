@@ -2,8 +2,8 @@
 
 ## About
 
-Simple web scraper for [Reddit](https://old.reddit.com), inspired by recent
-events. You input the name of a subreddit and then it will return posts
+Simple web scraper for [Reddit](https://old.reddit.com), inspired by
+[recent events](https://en.wikipedia.org/wiki/2023_Reddit_API_controversy).
 
 Use responsibly, etc.
 
