@@ -59,3 +59,4 @@ Returns a list of first page posts on subreddit.
 - [ ] Show more than just the first page
 - [ ] Get comments given a post
 - [ ] Get posts given a username
+- [ ] Take a look at the subreddit.json file for each subreddit for more data
