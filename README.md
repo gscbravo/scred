@@ -22,9 +22,10 @@ Import the module:
 ```python
 import scred
 
-for entry in scred.get_subreddit('todayilearned'):
+for entry in scred.get_subreddit('todayilearned', 2):
     print(f"author: {entry['author']}")
     print(f"comments: {entry['comments']}")
+    print(f"id: {entry['id']}")
     print(f"link: {entry['link']}")
     print(f"timestamp: {entry['timestamp']}")
     print(f"title: {entry['title']}")
@@ -32,7 +33,7 @@ for entry in scred.get_subreddit('todayilearned'):
     print('---')
 ```
 
-## get_subreddit(subreddit, session = None)
+## get_subreddit(subreddit, pages = 1, session = None)
 
 Returns a list of first page posts on subreddit.
 
@@ -41,6 +42,7 @@ Returns a list of first page posts on subreddit.
 | argument       | purpose                                              |
 | -------------- | ---------------------------------------------------- |
 | subreddit      | subreddit name, without 'r/'                         |
+| pages = 1      | number of pages to retrieve, default is 1            |
 | session = None | 'reddit_session' cookie, used for private subreddits |
 
 ### Returns
@@ -49,6 +51,7 @@ Returns a list of first page posts on subreddit.
 | --------- | ------------------------------------------------------------ |
 | author    | poster username, without 'u/'                                |
 | comments  | link to the post comments                                    |
+| id        | post short id                                                |
 | link      | link given by the post, if none is given, same as 'comments' |
 | timestamp | ISO 8601 timestamp in UTC. Ex: YYYY-MM-DDThh:mm:ss+00:00     |
 | title     | title of the post                                            |
@@ -56,7 +59,6 @@ Returns a list of first page posts on subreddit.
 
 ## TODO
 
-- [ ] Show more than just the first page
 - [ ] Get comments given a post
 - [ ] Get posts given a username
 - [ ] Take a look at the subreddit.json file for each subreddit for more data
