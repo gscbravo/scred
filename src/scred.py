@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-# User-Agent set to Chrome 114 on Windows 10
+# legit User-Agent
 headers = {
     'User-Agent': 'Mozilla/5.0 (compatible; scred/1.0; +https://github.com/gscbravo/scred)'
 }
