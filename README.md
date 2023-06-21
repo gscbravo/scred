@@ -35,7 +35,8 @@ for entry in scred.get_subreddit('todayilearned', 2):
 
 ## get_subreddit(subreddit, pages = 1, session = None)
 
-Returns a list of first page posts on subreddit.
+Returns a list of first page posts on subreddit. Gets around 25 posts, can vary
+depending on what Reddit gives for whatever reason.
 
 ### Arguments
 
