@@ -84,7 +84,6 @@ List of dictionaries each containing:
 
 ## TODO
 
-- [ ] Get the subreddit description
 - [ ] Get the various subreddit icons and banners
 - [ ] Get the subreddit rules
 - [ ] Get thumbnail of post when applicable
