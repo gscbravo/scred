@@ -6,7 +6,7 @@ headers = {
     'User-Agent': 'Mozilla/5.0 (compatible; scred/1.0; +https://github.com/gscbravo/scred)'
 }
 
-def get_subreddit(subreddit, pages = 1, session = None):
+def get_posts(subreddit, pages = 1, session = None):
     '''
     Returns a list of first page posts on subreddit. Gets around 25 posts per
     page.

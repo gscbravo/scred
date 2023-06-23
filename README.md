@@ -22,7 +22,8 @@ Import the module:
 ```python
 import scred
 
-for entry in scred.get_subreddit('todayilearned', 2):
+for i, entry in enumerate(scred.get_posts('todayilearned', 2)):
+    print(f"INDEX: {i}")
     print(f"author: {entry['author']}")
     print(f"comments: {entry['comments']}")
     print(f"id: {entry['id']}")
@@ -33,7 +34,7 @@ for entry in scred.get_subreddit('todayilearned', 2):
     print('---')
 ```
 
-## get_subreddit(subreddit, pages = 1, session = None)
+## get_posts(subreddit, pages = 1, session = None)
 
 Returns a list of first page posts on subreddit. Gets around 25 posts per page.
 
