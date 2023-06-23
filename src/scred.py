@@ -18,6 +18,8 @@ def get_metadata(subreddit, session = None):
 
     Returns:
         Dictionary containing:
+            description:
+                subreddit description
             members:
                 number of subreddit members
             online:
@@ -54,7 +56,12 @@ def get_metadata(subreddit, session = None):
     # get online
     sub_online = soup.select_one('p.users-online span.number').text
 
+    # get description
+    sub_desc_ul = soup.select_one('div.usertext-body div.md ul')
+    sub_desc = sub_desc_ul.text.strip() if sub_desc_ul is not None else ''
+
     metadata = {
+        'description': sub_desc,
         'members': sub_members,
         'online': sub_online,
         'title': sub_title

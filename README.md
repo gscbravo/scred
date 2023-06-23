@@ -49,11 +49,12 @@ Returns dictionary of metadata about subreddit.
 
 Dictionary containing:
 
-| key     | value                       |
-| ------- | --------------------------- |
-| members | number of subreddit members |
-| online  | number of members online    |
-| title   | full title of the subreddit |
+| key         | value                       |
+| ----------- | --------------------------- |
+| description | subreddit description       |
+| members     | number of subreddit members |
+| online      | number of members online    |
+| title       | full title of the subreddit |
 
 ## get_posts(subreddit, pages = 1, session = None)
 
