@@ -34,9 +34,30 @@ for i, entry in enumerate(scred.get_posts('todayilearned', 2)):
     print('---')
 ```
 
+## get_metadata(subreddit, session = None)
+
+Returns dictionary of metadata about subreddit.
+
+### Arguments
+
+| argument       | purpose                                              |
+| -------------- | ---------------------------------------------------- |
+| subreddit      | subreddit name, without 'r/'                         |
+| session = None | 'reddit_session' cookie, used for private subreddits |
+
+### Returns
+
+Dictionary containing:
+
+| key     | value                       |
+| ------- | --------------------------- |
+| members | number of subreddit members |
+| online  | number of members online    |
+| title   | full title of the subreddit |
+
 ## get_posts(subreddit, pages = 1, session = None)
 
-Returns a list of first page posts on subreddit. Gets around 25 posts per page.
+Returns a list of posts on subreddit. Gets around 25 posts per page.
 
 ### Arguments
 
@@ -47,6 +68,8 @@ Returns a list of first page posts on subreddit. Gets around 25 posts per page.
 | session = None | 'reddit_session' cookie, used for private subreddits |
 
 ### Returns
+
+List of dictionaries each containing:
 
 | key       | value                                                        |
 | --------- | ------------------------------------------------------------ |
@@ -60,6 +83,10 @@ Returns a list of first page posts on subreddit. Gets around 25 posts per page.
 
 ## TODO
 
+- [ ] Get the subreddit description
+- [ ] Get the various subreddit icons and banners
+- [ ] Get the subreddit rules
+- [ ] Get thumbnail of post when applicable
 - [ ] Get comments given a post
 - [ ] Get posts given a username
 - [ ] Take a look at the subreddit.json file for each subreddit for more data

@@ -6,10 +6,65 @@ headers = {
     'User-Agent': 'Mozilla/5.0 (compatible; scred/1.0; +https://github.com/gscbravo/scred)'
 }
 
+def get_metadata(subreddit, session = None):
+    '''
+    Returns dictionary of metadata about subreddit.
+
+    Args:
+        subreddit:
+            subreddit name, without 'r/'
+        session = None:
+            'reddit_session' cookie, used for private subreddits
+
+    Returns:
+        Dictionary containing:
+            members:
+                number of subreddit members
+            online:
+                number of members online
+            title:
+                full title of the subreddit
+    '''
+
+    # cookies for gated and NSFW
+    cookies = {
+        '_options': '%7B%22pref_gated_sr_optin%22%3A%20true%7D',
+        'over18': '1',
+        'reddit_session': session if session is not None else ''
+    }
+
+    # get page
+    url = f"https://old.reddit.com/r/{subreddit}/"
+    response = requests.get(url, headers=headers, cookies=cookies)
+    soup = BeautifulSoup(response.content, 'lxml')
+
+    # get sub title
+    sub_title = soup.select_one('title').text
+
+    if soup.select_one('span.subscribers') is None:
+        return {
+            'members': '',
+            'online': '',
+            'title': ''
+        }
+
+    # get members
+    sub_members = soup.select_one('span.subscribers span.number').text
+
+    # get online
+    sub_online = soup.select_one('p.users-online span.number').text
+
+    metadata = {
+        'members': sub_members,
+        'online': sub_online,
+        'title': sub_title
+    }
+
+    return metadata
+
 def get_posts(subreddit, pages = 1, session = None):
     '''
-    Returns a list of first page posts on subreddit. Gets around 25 posts per
-    page.
+    Returns a list of posts on subreddit. Gets around 25 posts per page.
 
     Args:
         subreddit:
