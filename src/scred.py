@@ -91,6 +91,8 @@ def get_posts(subreddit, pages = 1, session = None):
                 post short id
             link:
                 link given by the post, if none is given, same as 'comments'
+            thumbnail:
+                thumbnail preview for picture
             timestamp:
                 ISO 8601 timestamp in UTC
                 Ex: YYYY-MM-DDThh:mm:ss+00:00
@@ -146,12 +148,20 @@ def get_posts(subreddit, pages = 1, session = None):
             # get id
             entry_id = entry_comments.split('/')[6]
 
+            # get thumbnail
+            entry_thumb =  entry.select_one('a.thumbnail img')
+            if entry_thumb is not None:
+                entry_thumbnail = f"https:{entry_thumb['src'].strip()}"
+            else:
+                entry_thumbnail = ''
+
             # add the info
             posts.append({
                 'author': entry_author,
                 'comments': entry_comments,
                 'id': entry_id,
                 'link': entry_link,
+                'thumbnail': entry_thumbnail,
                 'timestamp': entry_timestamp,
                 'title': entry_title,
                 'votes': entry_votes

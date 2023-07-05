@@ -78,6 +78,7 @@ List of dictionaries each containing:
 | comments  | link to the post comments                                    |
 | id        | post short id                                                |
 | link      | link given by the post, if none is given, same as 'comments' |
+| thumbnail | thumbnail preview for picture                                |
 | timestamp | ISO 8601 timestamp in UTC. Ex: YYYY-MM-DDThh:mm:ss+00:00     |
 | title     | title of the post                                            |
 | votes     | number of votes the post has                                 |
@@ -86,7 +87,6 @@ List of dictionaries each containing:
 
 - [ ] Get the various subreddit icons and banners
 - [ ] Get the subreddit rules
-- [ ] Get thumbnail of post when applicable
 - [ ] Get comments given a post
 - [ ] Get posts given a username
 - [ ] Take a look at the subreddit.json file for each subreddit for more data
